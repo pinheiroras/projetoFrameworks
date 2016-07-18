@@ -2,7 +2,6 @@ package br.estacio.posgraduacao.frameworks.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -15,10 +14,10 @@ import javax.jws.WebService;
 public class PedidoEJB implements StatusService {
 
   @WebMethod
-  public List<StatusPedidoResult> consultarStatus(Integer[] pedidos) {
-    List<StatusPedidoResult> statusPedidos = new ArrayList<>();
+  public List<StatusPedido> consultarStatus(Integer[] pedidos) {
+    List<StatusPedido> statusPedidos = new ArrayList<>();
     for (Integer pedido : pedidos) {
-      statusPedidos.add(new StatusPedidoResult(pedido, statusRandom()));
+      statusPedidos.add(new StatusPedido(pedido, statusRandom()));
     }
     return statusPedidos;
   }

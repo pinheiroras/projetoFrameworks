@@ -2,3 +2,7 @@ Ajuda para o projeto
 
 
 http://www.feltex.com.br/felix/exemplo-completo-jsf-primefaces-ejb-hibernate-mysql-jms/
+
+
+emotions github
+https://github.com/dannyfritz/commit-message-emoji

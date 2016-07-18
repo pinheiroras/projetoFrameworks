@@ -5,4 +5,5 @@ http://www.feltex.com.br/felix/exemplo-completo-jsf-primefaces-ejb-hibernate-mys
 
 
 emotions github
+https://github.com/scotch-io/All-Github-Emoji-Icons
 https://github.com/dannyfritz/commit-message-emoji

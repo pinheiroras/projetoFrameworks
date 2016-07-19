@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<h:form>
+		<p>
+
+			<h:selectOneMenu value="#{compraBean.idProdutoSelecionado}">
+				<f:selectItems value="#{compraBean.produtos}" var="p"
+					itemValue="#{p.id}" itemLabel="#{p.nome}" />
+			</h:selectOneMenu>
+		</p>
+
+		<p>
+			<h:outputLabel value="Quantidade" for="quantidade" />
+			<h:inputText id="quantidade" value="#{compraBean.quantidade}" />
+		</p>
+
+		<p>
+			<h:commandButton action="#{compraBean.adicionarLista(compraBean.quantidade)}" value="+" />
+		</p>
+
+		<p>
+			<h:dataTable value="#{compraBean.getItensAdcionados()}" var="item"
+				styleClass="produtoTable">
+				<h:column>
+					<f:facet name="header">ID</f:facet>    				
+				      #{item.produto.id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+				      #{item.produto.nome}
+				   </h:column>
+				<h:column>
+					<f:facet name="header">Preço/Unitario</f:facet>
+				      #{item.produto.valor}
+				   </h:column>
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet>
+				     #{item.quantidade}
+				   </h:column>
+				   <h:column>
+					<f:facet name="header">Preço</f:facet>
+				      #{item.quantidade * item.produto.valor}
+				   </h:column>
+			</h:dataTable>
+		</p>
+		<p>
+			<h:outputLabel value="Total"/>
+			<span> - </span>
+			<h:outputLabel value="#{compraBean.precoTotal()}" />
+		</p>
+		<p>
+			<h:commandButton action="#{compraBean.finalizarCompra()}" value="Fechar Pedido" />
+		</p>
+	</h:form>
+</h:body>
+</html>
